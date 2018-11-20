@@ -13,7 +13,8 @@ RUN rm /tmp/NVIDIA-390.run
 
 
 # install other packages
-RUN apt-get install -y \
+RUN apt-get update \
+    && apt-get install -y \
     tmux \
     git \
     vim \
@@ -22,11 +23,13 @@ RUN apt-get install -y \
     unzip \
     python \
     python-pip \
+    idle \
     && apt-get upgrade -y
 
 
 # install additional ros tools
-RUN apt-get install -y \
+RUN apt-get update \
+    && apt-get install -y \
     ros-kinetic-catkin \
     python-wstool \
     python-catkin-tools \
